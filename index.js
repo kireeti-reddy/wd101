@@ -1,18 +1,26 @@
 
 // validations 
-const email = document.getElementById('email');
-        email.addEventListener('input', () => validation(email));
-        function validation(key){
-            let re = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
-            if(!re.test(email.value)){
-                email.setCustomValidity("Invalid Email");
-                email.reportValidity();
-                event.preventDefault();
-            }
-            else{
-                email.setCustomValidity("");
-            }
-        }
+// function validateEmail() {
+//     var email = document.getElementById("email").value;
+//     var re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+//     if (!re.test(email)) {
+//         alert("Invalid email address");
+//         return false;
+//     }
+
+//     return true;
+// }
+
+// function handleFormSubmit(event) {
+//     event.preventDefault();
+
+//     if (validateEmail()) {
+//         // Code to submit the form
+//     }
+// }
+
+// document.getElementById("user-form").addEventListener("submit", handleFormSubmit);
 
 // DOB  
 
@@ -28,12 +36,12 @@ document.getElementById("dob").setAttribute("max", maxDobValue);
 
 function calculateMinDobValue() {
     var currentDate = new Date();
-    var minDobValue = new Date(currentDate.getFullYear() - 55, currentDate.getMonth(), currentDate.getDate());
+    var minDobValue = new Date(currentDate.getFullYear() - 55, currentDate.getMonth() , currentDate.getDate() + 1);
     return minDobValue.toISOString().split('T')[0]; // Format as yyyy-mm-dd
-   }
-   
-   var minDobValue = calculateMinDobValue();
-   document.getElementById("dob").setAttribute("min", minDobValue);
+}
+
+var minDobValue = calculateMinDobValue();
+document.getElementById("dob").setAttribute("min", minDobValue);
 
 //table
 
@@ -41,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let userform = document.getElementById("user-form");
 
     const retrieve_e = () => {
-        let ent = sessionStorage.getItem("user-entries");
+        let ent = localStorage.getItem("user-entries");
         if (ent) {
             ent = JSON.parse(ent);
         }
@@ -71,6 +79,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     display();
 
+    
+
     const suf = (event) => {
         event.preventDefault();
         const name = document.getElementById("name").value;
@@ -89,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         entries.push(entry);
 
-        sessionStorage.setItem("user-entries", JSON.stringify(entries));
+        localStorage.setItem("user-entries", JSON.stringify(entries));
     }
     userform.addEventListener("submit", suf);
 })
