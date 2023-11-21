@@ -77,31 +77,27 @@
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
             <label for="email" style="font-weight: bold;">Email: </label>
-            <input type="text" id="email" name="email" placeholder="Enter your email" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
             <label for="password" style="font-weight: bold;">Password: </label>
             <input type="password" id="password" name="password">
 
             <label for="dob" style="font-weight: bold;">Date:</label>
-            <input type="date" id="dob" name="dob"  placeholder="Enter your DOB" required >
+            <input type="date" id="dob" name="dob" placeholder="Enter your DOB" required >
 
             <label for="check" style="font-size: 12px;">Accept Terms & Conditions</label>
             <input type="checkbox" id="check" name="check">
             
             <button id="submit" name="submit" >Submit</button>
         
-            <table id="entriesTable">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Password</th>
-                        <th>DOB</th>
-                        <th>Accepted Terms</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
+            <table id="registrationTable" border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Dob</th>
+                    <th>Accepted terms?</th>
+                </tr>
             </table>
                 <div id="user-entries"></div>
         </div>
